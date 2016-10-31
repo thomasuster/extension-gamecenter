@@ -33,9 +33,8 @@ class GameCenter {
 	public static function authenticate ():Void {
 		
 		initialize ();
-		
+
 		#if ios
-		Lib.pause ();
 		gamecenter_authenticate ();
 		#end
 		
@@ -120,9 +119,6 @@ class GameCenter {
 	private static function notifyListeners (inEvent:Dynamic) {
 		
 		#if ios
-		
-		Lib.resume ();
-		
 		var type = Std.string (Reflect.field (inEvent, "type"));
 		var data1 = Std.string (Reflect.field (inEvent, "data1"));
 		var data2 = Std.string (Reflect.field (inEvent, "data2"));
